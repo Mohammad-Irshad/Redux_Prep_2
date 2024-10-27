@@ -2,22 +2,22 @@ import {createSlice, createAsyncThunk} from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
-    const response = await axios.get("http://localhost:3000/movies")
+    const response = await axios.get("https://redux-prep-2backend.vercel.app/movies")
     return response.data
 })
 
 export const updateMovie = createAsyncThunk("movies/updateMovie", async ({movieId, updatedData}) => {
-    const response = await axios.patch(`http://localhost:3000/movies/update/${movieId}`, updatedData)
+    const response = await axios.patch(`https://redux-prep-2backend.vercel.app/movies/update/${movieId}`, updatedData)
     return response.data
 })
 
 export const addMovie = createAsyncThunk("movies/addMovie", async (newMovie) => {
-    const response = await axios.post(`http://localhost:3000/movie`, newMovie)
+    const response = await axios.post(`https://redux-prep-2backend.vercel.app/movie`, newMovie)
     return response.data
 })
 
 export const deleteMovie = createAsyncThunk("movies/deleteMovie", async (movieId) => {
-    const response = await axios.delete(`http://localhost:3000/movies/delete/${movieId}`)
+    const response = await axios.delete(`https://redux-prep-2backend.vercel.app/movies/delete/${movieId}`)
     return response.data
 })
 
