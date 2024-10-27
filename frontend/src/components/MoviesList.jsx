@@ -17,8 +17,8 @@ const MoviesList = ({onEdit}) => {
 
   return (
     <div>
-        {status === 'loading' && <p>Loading...</p>}
-        {status === 'success' && movies.length > 0 ? 
+        {status === 'loading' ? <p>Loading...</p> : ''}
+        {status === 'success' && movies.length > 0 ?  
             <ul>
                 {movies.map((movie) => (
                     <li key={movie._id} className='list-group-item'>
@@ -40,7 +40,7 @@ const MoviesList = ({onEdit}) => {
                 ))}
             </ul>     
             : 
-            <p>Movies list is empty.</p>           
+            null          
         }      
     </div>
   )
